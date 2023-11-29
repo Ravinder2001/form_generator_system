@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #063149;
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 90%;
+}
+.container:hover {
+  background-color: #063149;
+}
+.icon {
+}
+.label {
+  margin-left: 10px;
+}
+
+.container:hover .icon {
+  animation: shake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97); /* Apply the shake animation on hover */
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

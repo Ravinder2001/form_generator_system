@@ -7,6 +7,9 @@ export const Unauthorized = 401;
 //Routes
 export const Home_Route = "/";
 export const Login_Route = "/login";
+export const Create_Route = "/create";
+export const List_Route = "/list";
+export const Profile_Route = "/profile";
 
 
 export const ToastError: ToastOptions = {
