@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import ProjectRoutes from "./Routes/ProjectRoutes";
 
-import { Home_Route, LocalStorageKey } from "./Utils/Constant";
+import { Form_Generator_Route, Home_Route, LocalStorageKey } from "./Utils/Constant";
 import { withSuspense } from "./HOC/withSuspense";
 import styles from "./App.module.scss";
 
@@ -25,14 +25,13 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem(LocalStorageKey);
     if (token) {
-      console.log("🚀  file: App.tsx:29  decode:", token);
       const decode = JWTDecode(token);
       if (decode) {
         let exp = decode.exp;
         const currentTime = Math.floor(Date.now() / 1000);
         if (exp > currentTime) {
           dispatch(LoginSlice(decode));
-          navigate(Home_Route);
+          navigate(Form_Generator_Route);
         } else {
           logout();
         }

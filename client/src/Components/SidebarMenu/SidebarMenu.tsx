@@ -8,10 +8,11 @@ type props = {
   size: number;
   label: string;
   onClick: () => void;
+  selected: boolean;
 };
 function SidebarMenu(props: props) {
   return (
-    <div className={styles.container} onClick={props.onClick}>
+    <div className={`${styles.container} ${props.selected && styles.selected}`} onClick={props.onClick}>
       <div className={styles.icon}>
         <LucideIcons name={props.name} color={props.color} size={props.size} />
       </div>

@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { Home_Route } from "../Utils/Constant";
+import { Form_Generator_Route, Home_Route } from "../Utils/Constant";
 import { RootState } from "../Store/store";
 
 type PublicRoutesType = {
@@ -10,7 +10,7 @@ type PublicRoutesType = {
 
 function PublicRoutes({ children }: PublicRoutesType) {
   const User = useSelector((state: RootState) => state.UserSlice.user);
-  return !User ? <div>{children}</div> : <Navigate to={Home_Route} />;
+  return !User ? <div>{children}</div> : <Navigate to={Form_Generator_Route} />;
 }
 
 export default PublicRoutes;

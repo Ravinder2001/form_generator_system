@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  height: auto;
+  padding-top: 10px;
+}
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 20px;
+  height: 5%;
+  width: 98%;
+  border-bottom: 1px solid rgb(212, 210, 210);
+}
+.fields {
+  margin-top: 10px;
+}
+.btn {
+  width: 200px;
+  background-color: rgb(7, 20, 113);
+  color: white;
+  text-align: center;
+  padding: 5px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-top: 20px;
+}

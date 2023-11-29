@@ -2,14 +2,16 @@ import React, { ChangeEvent, useState } from "react";
 import styles from "./style.module.css";
 import LucideIcons from "../../Assets/Icons/Icons";
 import Login_User from "../../APIs/Login";
-import { Bad_Request, LocalStorageKey, Request_Succesfull, ToastError } from "../../Utils/Constant";
+import { Bad_Request, Form_Generator_Route, LocalStorageKey, Request_Succesfull, ToastError } from "../../Utils/Constant";
 import { useDispatch } from "react-redux";
 import { LoginSlice } from "../../Store/slices/UserSlice";
 import { JWTDecode } from "../../Utils/Function";
 import { toast } from "react-toastify";
 import Logo from "../../Assets/Images/logo.png";
+import { useNavigate } from "react-router-dom";
 function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [isPasswordHide, setIsPasswordHide] = useState<boolean>(true);
   const [inputValues, setInputValues] = useState<{ email: string; password: string }>({
@@ -45,6 +47,7 @@ function Login() {
       localStorage.setItem(LocalStorageKey, res?.token);
       const decode = JWTDecode(res?.token);
       dispatch(LoginSlice({ id: decode.id, name: decode.name }));
+      navigate(Form_Generator_Route);
     } else if (res?.response.status == Bad_Request) {
       toast.error(res?.response?.data?.message, ToastError);
       if (res?.response?.data?.message.includes("User")) {

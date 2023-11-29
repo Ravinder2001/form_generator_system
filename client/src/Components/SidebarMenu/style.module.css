@@ -8,6 +8,9 @@
   cursor: pointer;
   width: 90%;
 }
+.selected {
+  background-color: #063149;
+}
 .container:hover {
   background-color: #063149;
 }

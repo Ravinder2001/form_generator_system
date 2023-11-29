@@ -7,7 +7,7 @@ export const Unauthorized = 401;
 //Routes
 export const Home_Route = "/";
 export const Login_Route = "/login";
-export const Create_Route = "/create";
+export const Form_Generator_Route = "/form_generator";
 export const List_Route = "/list";
 export const Profile_Route = "/profile";
 
