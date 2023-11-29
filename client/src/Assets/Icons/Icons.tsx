@@ -1,5 +1,5 @@
 import React from "react";
-import { EyeOff, Eye, FilePlus,QrCode,LogOut,User } from "lucide-react";
+import { EyeOff, Eye, FilePlus, QrCode, LogOut, User, GanttChartSquare, Trash2,ScrollText } from "lucide-react";
 
 type Props = {
   name: string;
@@ -26,6 +26,15 @@ const LucideIcons = (props: Props) => {
     }
     case "user": {
       return <User size={props.size} color={props.color} />;
+    }
+    case "view": {
+      return <GanttChartSquare size={props.size} color={props.color} />;
+    }
+    case "delete": {
+      return <Trash2 size={props.size} color={props.color} />;
+    }
+    case "list": {
+      return <ScrollText size={props.size} color={props.color} />;
     }
     default:
       return null;

@@ -8,8 +8,10 @@ export const Unauthorized = 401;
 export const Home_Route = "/";
 export const Login_Route = "/login";
 export const Form_Generator_Route = "/form_generator";
+export const QR_Generator_Route = "/qr_generator";
 export const List_Route = "/list";
 export const Profile_Route = "/profile";
+export const Form_Details_Route = "/form_details/:form_id";
 
 
 export const ToastError: ToastOptions = {

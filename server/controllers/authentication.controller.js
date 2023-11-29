@@ -1,14 +1,17 @@
 const Encrypt = require("../helpers/Bcrypt/bcrypt");
 const genrateToken = require("../helpers/JWT/genrateJWT");
 const { Register, Login } = require("../models/authentication.model");
-const { Bad, Success } = require("../utils/constant");
+const { Bad, Success, NanoIdLength } = require("../utils/constant");
 const bcrypt = require("bcrypt");
 const { InvalidPassword, UserNotFound } = require("../utils/message");
+
 module.exports = {
   Register_User: async (req, res) => {
     try {
       let hashedPassword = await Encrypt(req.body.password);
-      const response = await Register({ name: req.body.name, email: req.body.email, password: hashedPassword });
+      const { nanoid } = await import("nanoid");
+      const id = nanoid(NanoIdLength);
+      const response = await Register({ id, name: req.body.name, email: req.body.email, password: hashedPassword });
       let token_Schema = {
         id: response.rows[0].id,
         name: response.rows[0].name,

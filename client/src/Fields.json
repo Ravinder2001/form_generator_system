@@ -1,7 +1,7 @@
 [
   { "label": "Form Type", "name": "from_type", "tag_type": "input", "input_type": "text", "default_value": "Form MM11" },
   { "label": "Form No", "name": "from_no", "tag_type": "input", "input_type": "text", "default_value": "IM00852009273" },
-  { "label": "Movement Type", "name": "Movement_type", "tag_type": "input", "input_type": "text", "default_value": "With in State" },
+  { "label": "Movement Type", "name": "movement_type", "tag_type": "input", "input_type": "text", "default_value": "With in State" },
   { "label": "Owner Name", "name": "owner_name", "tag_type": "input", "input_type": "text", "default_value": "KUMAON MANDAL VIKAS NIGAM LIMITED" },
   { "label": "Firm Name", "name": "firm_name", "tag_type": "input", "input_type": "text", "default_value": "M/S KUMAON MANDAL VIKAS NIGAM" },
   {
@@ -11,7 +11,7 @@
     "input_type": "text",
     "default_value": "River-Guala, Village-Khamia Block No-4, Tehsil:Kichha, District: US Nagar, Uttarakhand"
   },
-  { "label": "Seller Reg. No", "name": "seller_reg", "tag_type": "input", "input_type": "text", "default_value": "MO67000852" },
+  { "label": "Seller Reg. No", "name": "seller_reg_no", "tag_type": "input", "input_type": "text", "default_value": "MO67000852" },
   { "label": "Seller GSTIN", "name": "seller_gst", "tag_type": "input", "input_type": "text", "default_value": "MO67000852" },
   {
     "label": "Seller Address",
@@ -20,17 +20,17 @@
     "input_type": "text",
     "default_value": "River-Guala, Village-Khamia Block No-4, Tehsil:Kichha, District: US Nagar, Uttarakhand"
   },
-  { "label": "Minearal Name", "name": "minearal_name", "tag_type": "input", "input_type": "text", "default_value": "Sand" },
+  { "label": "Mineral Name", "name": "mineral_name", "tag_type": "input", "input_type": "text", "default_value": "Sand" },
   { "label": "Weight (Tons)", "name": "weight", "tag_type": "input", "input_type": "number", "default_value": "32.00" },
   { "label": "Sale Value (GST inclusive)", "name": "sale_value", "tag_type": "input", "input_type": "number", "default_value": "9408.00" },
   { "label": "GST Rate", "name": "gst_rate", "tag_type": "input", "input_type": "number", "default_value": "5.00" },
-  { "label": "Payble GST", "name": "payble", "tag_type": "input", "input_type": "number", "default_value": "448.00" },
+  { "label": "Payble GST", "name": "payble_gst", "tag_type": "input", "input_type": "number", "default_value": "448.00" },
   { "label": "Purchase Reg. Status", "name": "purchase_status", "tag_type": "input", "input_type": "text", "default_value": "Registred" },
   { "label": "Purchase Reg. No", "name": "purchase_no", "tag_type": "input", "input_type": "text", "default_value": "ST66000365" },
   { "label": "Purchase GSTIN", "name": "purchase_gst", "tag_type": "input", "input_type": "text", "default_value": "05ABQFA4776J1ZY" },
-  { "label": "Destination Address", "name": "destination", "tag_type": "textarea", "input_type": "text", "default_value": "199, 131m, Village: Haripur Purnanand, Tehsil" },
+  { "label": "Destination Address", "name": "destination_address", "tag_type": "textarea", "input_type": "text", "default_value": "199, 131m, Village: Haripur Purnanand, Tehsil" },
   { "label": "Vehicle Type", "name": "vehicle_type", "tag_type": "input", "input_type": "text", "default_value": "Truck" },
-  { "label": "Vehicle Reg No", "name": "vehicle_no", "tag_type": "input", "input_type": "text", "default_value": "UK06CB8527" },
+  { "label": "Vehicle Reg No", "name": "vehicle_reg_no", "tag_type": "input", "input_type": "text", "default_value": "UK06CB8527" },
   { "label": "Driver Name", "name": "driver_name", "tag_type": "input", "input_type": "text", "default_value": "Ishwar" },
   { "label": "Driver Mobile No", "name": "driver_no", "tag_type": "input", "input_type": "text", "default_value": "N/A" },
   { "label": "Travel Time (Hours)", "name": "travel_time", "tag_type": "input", "input_type": "text", "default_value": "4 Hours(s):0 Minute(s)" },

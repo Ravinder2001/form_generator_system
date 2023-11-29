@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.optionBox {
+  margin: auto;
+  width: 98%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input {
+  border: 1px solid rgb(199, 198, 198);
+  font-size: 16px;
+  border-radius: 4px;
+
+  padding: 4px 0px;
+  padding-left: 10px;
+  margin-top: 5px;
+  width: 300px;
+}
+.input:focus {
+  outline: none;
+}
