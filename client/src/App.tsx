@@ -32,9 +32,9 @@ function App() {
           const currentTime = Math.floor(Date.now() / 1000);
           if (exp > currentTime) {
             dispatch(LoginSlice(decode));
-            navigate(List_Route);
+            // navigate(List_Route);
             // navigate(QR_Generator_Route);
-            // navigate(Form_Generator_Route);
+            navigate(Form_Generator_Route);
           } else {
             logout();
           }

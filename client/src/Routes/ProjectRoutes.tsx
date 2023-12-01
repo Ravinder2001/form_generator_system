@@ -13,7 +13,7 @@ import QRGenerator from "../Pages/QRGenerator/QRGenerator";
 
 function ProjectRoutes() {
   return (
-    <Routes>
+    <Routes >
       <Route
         path={Login_Route}
         element={
