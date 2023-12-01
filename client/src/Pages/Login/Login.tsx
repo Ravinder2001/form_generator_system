@@ -59,6 +59,8 @@ function Login() {
         setDBError((prev) => ({ ...prev, password: true }));
       }
     }
+
+    console.log("testtt")
     setLoading(false);
   };
 
