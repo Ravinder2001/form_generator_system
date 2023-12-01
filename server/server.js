@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 const AuthenticationRoutes = require("./routes/authentication.routes");
 const FormRoutes = require("./routes/form.routes");
 const { DOMAIN } = require("./utils/config");
+console.log("DOMAIN:", DOMAIN)
 
 app.use(
   cors({
