@@ -10,6 +10,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import 'react-responsive-pagination/themes/classic.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(

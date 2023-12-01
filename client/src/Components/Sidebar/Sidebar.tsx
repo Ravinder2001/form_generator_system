@@ -71,7 +71,7 @@ function SidebarContainer() {
             }}
             selected={selected == 2}
           />
-          <SidebarMenu
+          {/* <SidebarMenu
             name="user"
             color="#f3ca03"
             size={24}
@@ -80,7 +80,7 @@ function SidebarContainer() {
               handleNavigate(Profile_Route);
             }}
             selected={selected == 3}
-          />
+          /> */}
         </div>
         <div className={styles.lowerContainer}>
           <SidebarMenu name="logOut" color="#c8141d" size={24} label="Logout" onClick={handleLogout} selected={false} />

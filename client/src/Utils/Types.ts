@@ -27,4 +27,5 @@ export type FormType = {
   form_valid_form: string;
   form_valid_upto: string;
   created_at: string;
+  isExpired: boolean;
 };

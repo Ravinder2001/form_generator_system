@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./style.module.css";
-import ReactPaginate from "react-paginate";
+import ResponsivePagination from "react-responsive-pagination";
 type props = {
   page: number;
   itemPerPage: number;
@@ -16,19 +16,7 @@ function PaginationContainer(props: props) {
           Showing {(page - 1) * itemPerPage + 1} to {Math.min(page * itemPerPage, totalItemCount)} of {totalItemCount} entries
         </span>
       </div>
-      <ReactPaginate
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
-        pageCount={totalItemCount / itemPerPage}
-        onPageChange={handlePageClick}
-        containerClassName={styles.pagination}
-        previousLinkClassName={styles.paginationLink}
-        nextLinkClassName={styles.paginationLink}
-        disabledClassName={styles.paginationDisabled}
-        activeClassName={styles.paginationActive}
-        pageRangeDisplayed={2}
-        marginPagesDisplayed={1}
-      />
+      <ResponsivePagination className={styles.pagination} current={page} total={Math.ceil(totalItemCount / itemPerPage)} onPageChange={handlePageClick} />
     </div>
   );
 }

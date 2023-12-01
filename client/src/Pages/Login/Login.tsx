@@ -23,6 +23,7 @@ function Login() {
     password: false,
   });
   const [isRememberMe, setIsRememberMe] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleCheck = (e: ChangeEvent<HTMLInputElement>) => {
     setIsRememberMe(!isRememberMe);
@@ -42,6 +43,7 @@ function Login() {
   };
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoading(true);
     const res = await Login_User({ ...inputValues, remember: isRememberMe });
     if (res?.status == Request_Succesfull) {
       localStorage.setItem(LocalStorageKey, res?.token);
@@ -57,6 +59,7 @@ function Login() {
         setDBError((prev) => ({ ...prev, password: true }));
       }
     }
+    setLoading(false);
   };
 
   return (
@@ -101,7 +104,7 @@ function Login() {
           </div>
 
           <button type="submit" className={styles.btn}>
-            Submit
+            {loading ? <span className={styles.loader}></span> : "Submit"}
           </button>
         </form>
       </div>

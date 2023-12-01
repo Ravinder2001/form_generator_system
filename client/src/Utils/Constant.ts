@@ -11,7 +11,7 @@ export const Form_Generator_Route = "/form_generator";
 export const QR_Generator_Route = "/qr_generator";
 export const List_Route = "/list";
 export const Profile_Route = "/profile";
-export const Form_Details_Route = "/form_details/:form_id";
+export const Form_Details_Route = "/form_details";
 
 
 export const ToastError: ToastOptions = {
@@ -24,3 +24,13 @@ export const ToastError: ToastOptions = {
   progress: undefined,
   theme: "light",
 };
+export const ToastSuccess: ToastOptions = {
+  position: "bottom-left",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+  };

@@ -1,12 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ProjectRoutes from "./Routes/ProjectRoutes";
 
-import { Form_Generator_Route, Home_Route, List_Route, LocalStorageKey } from "./Utils/Constant";
-import { withSuspense } from "./HOC/withSuspense";
+import { Form_Details_Route, Form_Generator_Route, Home_Route, List_Route, LocalStorageKey, QR_Generator_Route } from "./Utils/Constant";
 import styles from "./App.module.scss";
 
 import { useLocation, useNavigate } from "react-router-dom";
@@ -34,6 +33,8 @@ function App() {
           if (exp > currentTime) {
             dispatch(LoginSlice(decode));
             navigate(List_Route);
+            // navigate(QR_Generator_Route);
+            // navigate(Form_Generator_Route);
           } else {
             logout();
           }
@@ -46,8 +47,12 @@ function App() {
     }
   }, []);
 
-  const ComponentWithSuspense = withSuspense(ProjectRoutes);
-  return <ComponentWithSuspense />;
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProjectRoutes />
+    </Suspense>
+  );
 }
 
 export default App;

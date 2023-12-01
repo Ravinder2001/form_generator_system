@@ -3,7 +3,7 @@
   margin: 20px auto;
 }
 .table {
-  font-family: Arial, Helvetica, sans-serif;
+  
   border-collapse: collapse;
   width: 100%;
 }
@@ -32,7 +32,7 @@
 .actionBox {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .actionBox div {
   cursor: pointer;

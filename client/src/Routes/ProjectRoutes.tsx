@@ -9,6 +9,7 @@ import List from "../Pages/List/List";
 import Profile from "../Pages/Profile/Profile";
 import FormGenerator from "../Pages/FormGenerator/FormGenerator";
 import FormDetails from "../Pages/FormDetails/FormDetails";
+import QRGenerator from "../Pages/QRGenerator/QRGenerator";
 
 function ProjectRoutes() {
   return (
@@ -22,7 +23,7 @@ function ProjectRoutes() {
         }
       />
       <Route
-        path={Form_Details_Route}
+        path={`${Form_Details_Route}/:form_id`}
         element={
           <PublicRoutes>
             <FormDetails />
@@ -49,7 +50,7 @@ function ProjectRoutes() {
         path={QR_Generator_Route}
         element={
           <PrivateRoutes>
-            <div>Hii</div>
+            <QRGenerator />
           </PrivateRoutes>
         }
       />
