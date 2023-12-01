@@ -29,6 +29,9 @@ app.use(
 );
 app.use(express.json());
 
+app.use("/", (req, res) => {
+  res.send("Welcome to Form Generator");
+});
 app.use("/", AuthenticationRoutes);
 app.use("/form", FormRoutes);
 

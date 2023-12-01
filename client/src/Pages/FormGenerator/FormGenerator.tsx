@@ -10,7 +10,7 @@ function FormGenerator() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleChange = (e: any) => {
-    console.log("🚀  file: FormGenerator.tsx:15  e:", e.target.value)
+    console.log("🚀  file: FormGenerator.tsx:15  e:", e.target.value);
     setInputValues((prev: any) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -21,15 +21,17 @@ function FormGenerator() {
   }, [Data]);
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setLoading(true)
+    setLoading(true);
     const res = await AddForm(inputValues);
     console.log("🚀  file: FormGenerator.tsx:21  res:", res);
     if (res?.status == Request_Succesfull) {
       toast.success(res?.message, ToastSuccess);
     } else if (res?.response.status == Bad_Request) {
       toast.error(res?.response?.data?.message, ToastError);
+    } else {
+      toast.error("Something went wrong!", ToastError);
     }
-    setLoading(false)
+    setLoading(false);
   };
   return (
     <div className={styles.container}>

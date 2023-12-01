@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import LucideIcons from "../../Assets/Icons/Icons";
 import { FormType } from "../../Utils/Types";
 import moment from "moment";
-import { Form_Details_Route, Request_Succesfull, ToastSuccess } from "../../Utils/Constant";
+import { Form_Details_Route, Request_Succesfull, ToastError, ToastSuccess } from "../../Utils/Constant";
 import QRCode from "qrcode.react";
 import DeleteForm from "../../APIs/DeleteForm";
 import { toast } from "react-toastify";
@@ -34,6 +34,8 @@ function TableContainer(props: props) {
     if (res?.status == Request_Succesfull) {
       FetchFromList();
       toast.success(res?.message, ToastSuccess);
+    } else {
+      toast.error("Something went wrong!", ToastError);
     }
   };
 

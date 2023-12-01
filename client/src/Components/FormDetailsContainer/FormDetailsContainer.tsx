@@ -3,7 +3,8 @@ import styles from "./style.module.css";
 import Data from "../../Fields.json";
 import { FormType } from "../../Utils/Types";
 import FormDetails from "../../APIs/FormDetails";
-import { Request_Succesfull } from "../../Utils/Constant";
+import { Request_Succesfull, ToastError } from "../../Utils/Constant";
+import { toast } from "react-toastify";
 
 type Props = {
   id: string;
@@ -20,6 +21,8 @@ function FormDetailsContainer(props: Props) {
     if (res?.status == Request_Succesfull) {
       setFormDetails(res?.data?.formDetails);
       setIsExpired(res?.data?.isExpired);
+    } else {
+      toast.error("Something went wrong!", ToastError);
     }
     setLoading(false);
   };

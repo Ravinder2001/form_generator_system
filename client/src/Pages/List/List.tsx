@@ -1,13 +1,14 @@
 import React, { ChangeEvent, useEffect, useState, useRef, Dispatch, SetStateAction } from "react";
 import styles from "./style.module.css";
 import GetFormList from "../../APIs/GetFormList";
-import { Request_Succesfull } from "../../Utils/Constant";
+import { Request_Succesfull, ToastError } from "../../Utils/Constant";
 import { FormType } from "../../Utils/Types";
 import moment from "moment";
 import TableContainer from "../../Components/TableContainer/TableContainer";
 import PaginationContainer from "../../Components/PaginationContainer/PaginationContainer";
 import FormSearch from "../../APIs/FormSearch";
 import QRCode from "qrcode.react";
+import { toast } from "react-toastify";
 
 const useDebounce = (value: string, delay: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -45,8 +46,10 @@ function List() {
       setData(res?.data.list);
       setTotalItemCount(res?.data?.totalCount);
       setItemPerPage(res?.data?.itemPerPage);
-      setLoading(false);
+    } else {
+      toast.error("Something went wrong!", ToastError);
     }
+    setLoading(false);
   };
   const FetchFormSearch = async () => {
     const res = await FormSearch(text, page);
@@ -54,8 +57,10 @@ function List() {
       setData(res?.data.list);
       setTotalItemCount(res?.data?.totalCount);
       setItemPerPage(res?.data?.itemPerPage);
-      setLoading(false);
+    } else {
+      toast.error("Something went wrong!", ToastError);
     }
+    setLoading(false);
   };
 
   const handlePageClick = (e: any) => {
@@ -81,7 +86,7 @@ function List() {
 
         <input className={styles.input} value={text} onChange={handleChange} type="text" placeholder="Search Here" />
       </div>
-      
+
       <TableContainer data={data} loading={loading} FetchFromList={FetchFromList} />
       <PaginationContainer page={page} itemPerPage={itemPerPage} totalItemCount={totalItemCount} handlePageClick={handlePageClick} />
     </div>
