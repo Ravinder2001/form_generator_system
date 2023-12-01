@@ -12,7 +12,7 @@ console.log("DOMAIN:", DOMAIN)
 
 app.use(
   cors({
-    origin: [DOMAIN],
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
