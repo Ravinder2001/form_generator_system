@@ -1,7 +1,8 @@
 const express = require("express");
 const authenticate = require("../helpers/JWT/authenticate");
-const { AddFormValidatios } = require("../helpers/Body_Validations/Form/validator");
 const { Add_Form, Get_Form_List, Form_Search, Form_Details, Form_Delete } = require("../controllers/form.controller");
+const { AddFormValidatios } = require("../helpers/Body_Validations/forms/validator");
+
 const router = express.Router();
 
 router.post("/add", authenticate, AddFormValidatios, Add_Form);
