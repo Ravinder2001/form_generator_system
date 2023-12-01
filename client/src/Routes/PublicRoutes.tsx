@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { Form_Generator_Route, Home_Route } from "../Utils/Constant";
+import { Home_Route } from "../Utils/Constant";
 import { RootState } from "../Store/store";
 import { Helmet } from "react-helmet";
 import favicon from "../Assets/Images/Min/favicon.ico";
@@ -32,7 +32,7 @@ function PublicRoutes({ children }: PublicRoutesType) {
       {children}
     </div>
   ) : (
-    <Navigate to={Form_Generator_Route} />
+    <Navigate to={Home_Route} />
   );
 }
 

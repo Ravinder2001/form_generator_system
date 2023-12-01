@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Logo from "../../Assets/Images/logo.png";
 import styles from "./style.module.css";
 import SidebarMenu from "../SidebarMenu/SidebarMenu";
-import { Form_Generator_Route, List_Route, LocalStorageKey, Profile_Route, QR_Generator_Route } from "../../Utils/Constant";
+import { Home_Route, List_Route, LocalStorageKey, Profile_Route, QR_Generator_Route } from "../../Utils/Constant";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LogoutSlice } from "../../Store/slices/UserSlice";
@@ -22,15 +22,14 @@ function SidebarContainer() {
   };
 
   useEffect(() => {
-    if (location.pathname.includes("form")) {
-      setSelected(0);
-    } else if (location.pathname.includes("list")) {
+    if (location.pathname.includes("list")) {
       setSelected(1);
     } else if (location.pathname.includes("qr")) {
       setSelected(2);
-    }
-    else if (location.pathname.includes("profile")) {
+    } else if (location.pathname.includes("profile")) {
       setSelected(3);
+    } else {
+      setSelected(0);
     }
   }, [location]);
   return (
@@ -47,7 +46,7 @@ function SidebarContainer() {
             size={24}
             label="Generate New Form"
             onClick={() => {
-              handleNavigate(Form_Generator_Route);
+              handleNavigate(Home_Route);
             }}
             selected={selected == 0}
           />

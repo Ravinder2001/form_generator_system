@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
-import { Form_Details_Route, Form_Generator_Route, Home_Route, List_Route, Login_Route, Profile_Route, QR_Generator_Route } from "../Utils/Constant";
+import { Form_Details_Route, Home_Route, List_Route, Login_Route, Profile_Route, QR_Generator_Route } from "../Utils/Constant";
 import ErrorFallback from "../Error/ErrorFallback";
 import Login from "../Pages/Login/Login";
 import List from "../Pages/List/List";
@@ -31,7 +31,7 @@ function ProjectRoutes() {
         }
       />
       <Route
-        path={Form_Generator_Route}
+        path={Home_Route}
         element={
           <PrivateRoutes>
             <FormGenerator />

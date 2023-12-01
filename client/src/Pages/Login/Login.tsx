@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import styles from "./style.module.css";
 import LucideIcons from "../../Assets/Icons/Icons";
 import Login_User from "../../APIs/Login";
-import { Bad_Request, Form_Generator_Route, LocalStorageKey, Request_Succesfull, ToastError } from "../../Utils/Constant";
+import { Bad_Request, Home_Route, LocalStorageKey, Request_Succesfull, ToastError } from "../../Utils/Constant";
 import { useDispatch } from "react-redux";
 import { LoginSlice } from "../../Store/slices/UserSlice";
 import { JWTDecode } from "../../Utils/Function";
@@ -49,7 +49,7 @@ function Login() {
       localStorage.setItem(LocalStorageKey, res?.token);
       const decode = JWTDecode(res?.token);
       dispatch(LoginSlice({ id: decode.id, name: decode.name }));
-      navigate(Form_Generator_Route);
+      navigate(Home_Route);
     } else if (res?.response.status == Bad_Request) {
       toast.error(res?.response?.data?.message, ToastError);
       if (res?.response?.data?.message.includes("User")) {

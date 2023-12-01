@@ -5,9 +5,8 @@ export const Bad_Request = 400;
 export const Unauthorized = 401;
 
 //Routes
-export const Home_Route = "/";
 export const Login_Route = "/login";
-export const Form_Generator_Route = "/form_generator";
+export const Home_Route = "/";
 export const QR_Generator_Route = "/qr_generator";
 export const List_Route = "/list";
 export const Profile_Route = "/profile";

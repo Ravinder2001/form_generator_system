@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import ProjectRoutes from "./Routes/ProjectRoutes";
 
-import { Form_Details_Route, Form_Generator_Route, Home_Route, List_Route, LocalStorageKey, QR_Generator_Route } from "./Utils/Constant";
+import { Form_Details_Route, Home_Route, List_Route, LocalStorageKey, QR_Generator_Route } from "./Utils/Constant";
 import styles from "./App.module.scss";
 
 import { useLocation, useNavigate } from "react-router-dom";
@@ -34,7 +34,7 @@ function App() {
             dispatch(LoginSlice(decode));
             // navigate(List_Route);
             // navigate(QR_Generator_Route);
-            navigate(Form_Generator_Route);
+            navigate(Home_Route);
           } else {
             logout();
           }
