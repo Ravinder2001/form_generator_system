@@ -45,12 +45,13 @@ function Login() {
     event.preventDefault();
     setLoading(true);
     const res = await Login_User({ ...inputValues, remember: isRememberMe });
+  
     if (res?.status == Request_Succesfull) {
       localStorage.setItem(LocalStorageKey, res?.token);
       const decode = JWTDecode(res?.token);
       dispatch(LoginSlice({ id: decode.id, name: decode.name }));
       navigate(Home_Route);
-    } else if (res?.response.status == Bad_Request) {
+    } else if (res?.response?.status == Bad_Request) {
       toast.error(res?.response?.data?.message, ToastError);
       if (res?.response?.data?.message.includes("User")) {
         setDBError((prev) => ({ ...prev, email: true }));
@@ -58,9 +59,9 @@ function Login() {
       if (res?.response?.data?.message.includes("password")) {
         setDBError((prev) => ({ ...prev, password: true }));
       }
+    } else {
+      toast.error("Something went wrong!", ToastError);
     }
-
-    console.log("testtt")
     setLoading(false);
   };
 
