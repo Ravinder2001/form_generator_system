@@ -32,7 +32,7 @@ function FormFields(props: props) {
                 className={styles.input}
               />
             ) : (
-              <textarea required rows={4} name={input.name} onChange={handleChange} value={inputValues?.[input.name]} className={styles.textarea} />
+              <textarea required rows={1} name={input.name} onChange={handleChange} value={inputValues?.[input.name]} className={styles.textarea} />
             )}
           </div>
         );

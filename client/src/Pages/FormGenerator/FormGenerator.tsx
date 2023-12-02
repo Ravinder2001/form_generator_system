@@ -16,7 +16,7 @@ function FormGenerator() {
 
   useEffect(() => {
     Data.map((input) => {
-      setInputValues((prev: any) => ({ ...prev, [input.name]: input.default_value }));
+      setInputValues((prev: any) => ({ ...prev, [input.name]: "" }));
     });
   }, [Data]);
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -36,6 +36,7 @@ function FormGenerator() {
   return (
     <div className={styles.container}>
       <div className={styles.heading}>Create New Form</div>
+      <div className={styles.form_container}>
       <form onSubmit={handleSubmit}>
         <div className={styles.fields}>
           <FormFields inputValues={inputValues} handleChange={handleChange} />
@@ -45,6 +46,7 @@ function FormGenerator() {
           {loading ? <span className={styles.loader}></span> : "Generate Form"}
         </button>
       </form>
+      </div>
     </div>
   );
 }

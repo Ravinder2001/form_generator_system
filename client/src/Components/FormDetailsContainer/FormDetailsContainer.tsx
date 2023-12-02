@@ -33,19 +33,14 @@ function FormDetailsContainer(props: Props) {
 
   return (
     <div className={styles.container}>
+      {isExpired ? <div className={styles.exipred}>Related Form No has been already Expired.</div> : null}
       <div className={styles.heading}>Form Details</div>
-      {isExpired ? <div className={styles.exipred}>This form is expired!</div> : null}
       <div className={styles.tableContainer}>
         {!loading ? (
           <>
             {formDetails ? (
               <table className={styles.table}>
-                <thead className={styles.thead}>
-                  <tr className={styles.tr}>
-                    <th className={styles.th}>Field</th>
-                    <th className={styles.th}>Value</th>
-                  </tr>
-                </thead>
+                
                 <tbody className={styles.tbody}>
                   {Data.map((item) => (
                     <tr key={item.name} className={styles.tr}>

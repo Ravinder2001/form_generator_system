@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./style.module.css";
-import Header from "../../Assets/Images/Header.png";
+
 import Middle from "../../Assets/Images/Middle.png";
 import Footer from "../../Assets/Images/Footer.png";
 import FormDetailsContainer from "../../Components/FormDetailsContainer/FormDetailsContainer";
+import FormDetailsHeader from "../../Components/FormDetailsHeader/FormDetailsHeader";
+import FormDetailsNavbar from "../../Components/FormDetailsNavbar/FormDetailsNavbar";
 function FormDetails() {
   const location = useLocation();
+  const [isScroll, setIsScroll] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
 
+      const isAtTop = window.scrollY === 0;
+  
+      // Update isScroll based on scroll position
+      setIsScroll(!isAtTop);
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isScroll]);
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <img src={Header} alt="" className={styles.img} />
-      </div>
+      {isScroll ? <FormDetailsNavbar /> : <FormDetailsHeader />}
 
       <FormDetailsContainer id={location.pathname.split("/")[2]} />
 

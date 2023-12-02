@@ -1,17 +1,9 @@
 .container {
   width: 100%;
   height: 100vh;
+  font-family: "Helvetica" !important;
 }
-.header {
-  width: 100%;
-  height: auto;
-  margin-top: -10px;
-}
-.img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+
 .middle {
   width: 50%;
   height: auto;
@@ -20,4 +12,9 @@
 .footer {
   width: 100%;
   height: auto;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

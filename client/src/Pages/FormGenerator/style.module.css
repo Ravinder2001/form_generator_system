@@ -1,7 +1,8 @@
 .container {
   width: 100%;
-  height: auto;
+  height: 100vh;
   padding-top: 10px;
+  background-color: rgb(231, 230, 230);
 }
 .heading {
   font-size: 24px;
@@ -45,4 +46,13 @@
   100% {
     transform: rotate(360deg);
   }
+}
+.form_container{
+  /* border: 1px solid red; */
+  width: 98%;
+  margin: auto;
+  height: 90vh;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

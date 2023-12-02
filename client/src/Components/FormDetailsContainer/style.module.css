@@ -20,6 +20,8 @@
 }
 .td {
   width: 50%;
+  font-size: 14px;
+  color: #333333;
 }
 
 .table td,
@@ -68,4 +70,5 @@
   color: red;
   font-size: 20px;
   font-weight: bold;
+  margin-top: 20px;
 }
