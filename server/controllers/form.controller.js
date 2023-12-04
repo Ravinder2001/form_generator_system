@@ -38,31 +38,28 @@ module.exports = {
   },
   Form_Details: async (req, res) => {
     try {
-      const response = await FormDetails({ id: req.params.form_id });
-
+      const response = await FormDetails({ id: req.params.form_id??"" });
+  
       let formDetails = response.rows.length ? response.rows[0] : null;
       let isExpired;
-
+  
       if (formDetails && formDetails.form_valid_upto) {
         const currentTimestamp = Date.now();
-        const formValidUptoTimestamp = new Date(formDetails.form_valid_upto).getTime();
-        const newFromDate = moment(formDetails.form_valid_from).format("DD/MM/YYYY hh:mm:ss");
-        const newUptoDate = moment(formDetails.form_valid_upto).format("DD/MM/YYYY hh:mm:ss");
-        formDetails.form_valid_from = newFromDate;
-        formDetails.form_valid_upto = newUptoDate;
-
+        const formValidUptoTimestamp = moment(formDetails.form_valid_upto, "DD/MM/YYYY hh:mm A").valueOf();
+  
         if (currentTimestamp > formValidUptoTimestamp) {
           isExpired = true;
         } else {
           isExpired = false;
         }
       }
-
+  
       return res.status(Success).json({ data: { formDetails: formDetails, isExpired }, status: Success });
     } catch (err) {
       return res.status(Bad).json({ message: err.message, status: Bad });
     }
-  },
+  }
+  ,
   Form_Delete: async (req, res) => {
     try {
       await FormDelete({ id: req.params.form_id });
