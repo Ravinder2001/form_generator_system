@@ -36,14 +36,15 @@ function FormDetailsContainer(props: Props) {
       {isExpired ? <div className={styles.exipred}>Related Form No has been already Expired.</div> : null}
       <div className={styles.heading}>Form Details</div>
       <div className={styles.tableContainer}>
-        <div className={styles.expired_img}>
-          <img src="https://dgmappl.uk.gov.in/Images/Expired_Form.png" alt="" />
-        </div>
+        {isExpired ? (
+          <div className={styles.expired_img}>
+            <img src="https://dgmappl.uk.gov.in/Images/Expired_Form.png" alt="" />
+          </div>
+        ) : null}
         {!loading ? (
           <>
             {formDetails ? (
               <table className={styles.table}>
-                
                 <tbody className={styles.tbody}>
                   {Data.map((item) => (
                     <tr key={item.name} className={styles.tr}>
