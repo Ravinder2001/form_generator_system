@@ -6,34 +6,43 @@ import AddForm from "../../APIs/AddForm";
 import { Bad_Request, Request_Succesfull, ToastError, ToastSuccess } from "../../Utils/Constant";
 import { toast } from "react-toastify";
 import moment from "moment";
-import { isValidDateTime } from "../../Utils/Function";
+import { dateStringToTimestamp, isValidDateTime } from "../../Utils/Function";
 function FormGenerator() {
   const [inputValues, setInputValues] = useState<any>({});
   const [loading, setLoading] = useState<boolean>(false);
+  const [isDateValid, setIsDateValid] = useState<{ from: boolean; upto: boolean }>({ from: true, upto: true });
 
   const handleChange = (e: any) => {
-    console.log("🚀  file: FormGenerator.tsx:15  e:", e.target.value);
     setInputValues((prev: any) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   useEffect(() => {
     Data.map((input) => {
       if (input.name == "form_valid_from") {
-        setInputValues((prev: any) => ({ ...prev, [input.name]: moment().format("DD/MM/YYYY h:mm:ss A") }));
+        setInputValues((prev: any) => ({ ...prev, [input.name]: moment().format("DD/MM/YYYY hh:mm:ss A") }));
       } else if (input.name == "form_valid_upto") {
-        setInputValues((prev: any) => ({ ...prev, [input.name]: moment().add(1, "days").format("DD/MM/YYYY h:mm:ss A") }));
+        setInputValues((prev: any) => ({ ...prev, [input.name]: moment().add(1, "days").format("DD/MM/YYYY hh:mm:ss A") }));
       } else {
         setInputValues((prev: any) => ({ ...prev, [input.name]: "1" }));
       }
     });
   }, [Data]);
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
+    if (isDateValid.from && isDateValid.upto) {
+      let from_timestamp = dateStringToTimestamp(inputValues.form_valid_from);
 
-    if (isValidDateTime(inputValues.form_valid_from) && isValidDateTime(inputValues.form_valid_upto)) {
-      const res = await AddForm(inputValues);
-      console.log("🚀  file: FormGenerator.tsx:21  res:", res);
+      let upto_timestamp = dateStringToTimestamp(inputValues.form_valid_upto);
+
+      let obj = {
+        ...inputValues,
+        form_valid_from: from_timestamp,
+        form_valid_upto: upto_timestamp,
+      };
+
+      const res = await AddForm(obj);
       if (res?.status == Request_Succesfull) {
         toast.success(res?.message, ToastSuccess);
       } else if (res?.response.status == Bad_Request) {
@@ -42,17 +51,26 @@ function FormGenerator() {
         toast.error("Something went wrong!", ToastError);
       }
     } else {
-      alert("Invalid date and time");
+      alert("invalid date");
     }
+
     setLoading(false);
   };
+
+  useEffect(() => {
+    setIsDateValid((prev) => ({ ...prev, from: isValidDateTime(inputValues.form_valid_from) }));
+  }, [inputValues.form_valid_from]);
+  useEffect(() => {
+    setIsDateValid((prev) => ({ ...prev, upto: isValidDateTime(inputValues.form_valid_upto) }));
+  }, [inputValues.form_valid_upto]);
+
   return (
     <div className={styles.container}>
       <div className={styles.heading}>Create New Form</div>
       <div className={styles.form_container}>
         <form onSubmit={handleSubmit}>
           <div className={styles.fields}>
-            <FormFields inputValues={inputValues} handleChange={handleChange} />
+            <FormFields isDateValid={isDateValid} inputValues={inputValues} handleChange={handleChange} />
           </div>
 
           <button type="submit" className={styles.btn}>

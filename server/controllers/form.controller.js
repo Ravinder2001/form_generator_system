@@ -2,6 +2,7 @@ const moment = require("moment/moment");
 const { GetFormList, AddForm, GetListCount, ListSearch, FormSearch, FormSearchCount, FormDetails, FormDelete } = require("../models/form.model");
 const { Bad, Success, NanoIdLength, ItemPerPage } = require("../utils/constant");
 const { FormGenerate, FormDeleteMessage } = require("../utils/message");
+const { timestampToDateString } = require("../utils/function");
 
 module.exports = {
   Add_Form: async (req, res) => {
@@ -38,28 +39,27 @@ module.exports = {
   },
   Form_Details: async (req, res) => {
     try {
-      const response = await FormDetails({ id: req.params.form_id??"" });
-  
+      const response = await FormDetails({ id: req.params.form_id ?? "" });
+
       let formDetails = response.rows.length ? response.rows[0] : null;
       let isExpired;
-  
       if (formDetails && formDetails.form_valid_upto) {
-        const currentTimestamp = Date.now();
-        const formValidUptoTimestamp = moment(formDetails.form_valid_upto, "DD/MM/YYYY hh:mm:ss A").valueOf();
-  
-        if (currentTimestamp > formValidUptoTimestamp) {
-          isExpired = true;
-        } else {
-          isExpired = false;
-        }
+        const isTimestampExpired = (timestamp) => {
+          const currentTimestamp = new Date().getTime();
+          return timestamp < currentTimestamp;
+        };
+
+        isExpired = isTimestampExpired(Number(formDetails.form_valid_upto));
+        let newFromDate = timestampToDateString(Number(formDetails.form_valid_from));
+        let newUptoDate = timestampToDateString(Number(formDetails.form_valid_upto));
+        formDetails.form_valid_from = newFromDate;
+        formDetails.form_valid_upto = newUptoDate;
       }
-  
-      return res.status(Success).json({ data: { formDetails: formDetails, isExpired }, status: Success });
+      return res.status(Success).json({ data: { formDetails, isExpired }, status: Success });
     } catch (err) {
       return res.status(Bad).json({ message: err.message, status: Bad });
     }
-  }
-  ,
+  },
   Form_Delete: async (req, res) => {
     try {
       await FormDelete({ id: req.params.form_id });

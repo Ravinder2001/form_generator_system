@@ -31,6 +31,12 @@
   color: black;
   font-family: "Montserrat" !important;
 }
+.input:focus{
+  outline: none;
+}
+.textarea:focus{
+  outline: none;
+}
 .textarea {
   width: 90%;
   font-size: 14px;
@@ -41,4 +47,12 @@
   resize: vertical;
   color: black;
   font-family: "Montserrat" !important;
+}
+.invalidDate{
+  border: 2px solid red;
+}
+.dateError{
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 }

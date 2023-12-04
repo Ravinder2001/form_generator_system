@@ -29,8 +29,8 @@ const form_body = Joi.object({
   driver_no: Joi.string().max(255).required(),
   travel_time: Joi.string().max(255).required(),
   travel_distance: Joi.string().max(255).required(),
-  form_valid_from: Joi.string().max(255).required(),
-  form_valid_upto: Joi.string().max(255).required(),
+  form_valid_from: Joi.number().required(),
+  form_valid_upto: Joi.number().required(),
 });
 
 exports.validate_form_body = validator(form_body);

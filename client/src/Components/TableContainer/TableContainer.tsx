@@ -8,6 +8,7 @@ import QRCode from "qrcode.react";
 import DeleteForm from "../../APIs/DeleteForm";
 import { toast } from "react-toastify";
 import { Button, message, Popconfirm } from "antd";
+import { timestampToDateString } from "../../Utils/Function";
 type props = {
   data: FormType[];
   loading: boolean;
@@ -89,7 +90,7 @@ function TableContainer(props: props) {
                     </Popconfirm>
                   </td>
                   <td className={styles.td}>{item.form_no}</td>
-                  <td className={styles.td}>{item.form_valid_upto}</td>
+                  <td className={styles.td}>{timestampToDateString(Number(item.form_valid_upto))}</td>
                   <td className={styles.td}>{item.form_type}</td>
                   <td className={styles.td}>{item.firm_name}</td>
                   <td className={styles.td}>{item.mineral_name}</td>
