@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS form_list (
   driver_no VARCHAR(255) NOT NULL,
   travel_time VARCHAR(255) NOT NULL,
   travel_distance VARCHAR(255) NOT NULL,
-  form_valid_form VARCHAR(255) NOT NULL,
+  form_valid_from VARCHAR(255) NOT NULL,
   form_valid_upto VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   status BOOLEAN NOT NULL DEFAULT true

@@ -9,34 +9,27 @@ type props = {
 };
 function FormFields(props: props) {
   const { inputValues, handleChange } = props;
+  console.log("🚀  file: FormFields.tsx:12  inputValues:sssss", inputValues);
 
   return (
     <div className={styles.container}>
-      {Data.map((input) => {
-        if (input.name == "form_valid_form") {
-          input.default_value = moment().format("YYYY-MM-DDTHH:mm");
-        }
-        if (input.name == "form_valid_upto") {
-          input.default_value = moment().add(1, "day").format("YYYY-MM-DDTHH:mm");
-        }
-        return (
-          <div className={styles.box}>
-            <div className={styles.label}>{input.label}</div>
-            {input.tag_type == "input" ? (
-              <input
-                required
-                type={input.input_type}
-                onChange={handleChange}
-                value={inputValues?.[input.name]}
-                name={input.name}
-                className={styles.input}
-              />
-            ) : (
-              <textarea required rows={1} name={input.name} onChange={handleChange} value={inputValues?.[input.name]} className={styles.textarea} />
-            )}
-          </div>
-        );
-      })}
+      {Data.map((input) => (
+        <div className={styles.box}>
+          <div className={styles.label}>{input.label}</div>
+          {input.tag_type == "input" ? (
+            <input
+              required
+              type={input.input_type}
+              onChange={handleChange}
+              value={inputValues?.[input.name]}
+              name={input.name}
+              className={styles.input}
+            />
+          ) : (
+            <textarea required rows={1} name={input.name} onChange={handleChange} value={inputValues?.[input.name]} className={styles.textarea} />
+          )}
+        </div>
+      ))}
     </div>
   );
 }

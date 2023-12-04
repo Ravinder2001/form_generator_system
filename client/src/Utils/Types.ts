@@ -24,7 +24,7 @@ export type FormType = {
   driver_no: string;
   travel_time: string;
   travel_distance: string;
-  form_valid_form: string;
+  form_valid_from: string;
   form_valid_upto: string;
   created_at: string;
   isExpired: boolean;

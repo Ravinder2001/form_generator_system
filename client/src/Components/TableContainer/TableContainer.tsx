@@ -89,7 +89,7 @@ function TableContainer(props: props) {
                     </Popconfirm>
                   </td>
                   <td className={styles.td}>{item.form_no}</td>
-                  <td className={styles.td}>{moment(item.form_valid_upto).format("DD/MM/YYYY hh:mm:ss")}</td>
+                  <td className={styles.td}>{item.form_valid_upto}</td>
                   <td className={styles.td}>{item.form_type}</td>
                   <td className={styles.td}>{item.firm_name}</td>
                   <td className={styles.td}>{item.mineral_name}</td>

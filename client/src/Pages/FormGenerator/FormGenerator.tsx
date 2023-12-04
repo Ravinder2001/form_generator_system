@@ -5,6 +5,7 @@ import Data from "../../Fields.json";
 import AddForm from "../../APIs/AddForm";
 import { Bad_Request, Request_Succesfull, ToastError, ToastSuccess } from "../../Utils/Constant";
 import { toast } from "react-toastify";
+import moment from "moment";
 function FormGenerator() {
   const [inputValues, setInputValues] = useState<any>({});
   const [loading, setLoading] = useState<boolean>(false);
@@ -16,7 +17,13 @@ function FormGenerator() {
 
   useEffect(() => {
     Data.map((input) => {
-      setInputValues((prev: any) => ({ ...prev, [input.name]: "" }));
+      if (input.name == "form_valid_from") {
+        setInputValues((prev: any) => ({ ...prev, [input.name]: moment().format("DD/MM/YYYY h:mm A") }));
+      } else if (input.name == "form_valid_upto") {
+        setInputValues((prev: any) => ({ ...prev, [input.name]: moment().add(1, "days").format("DD/MM/YYYY h:mm A") }));
+      } else {
+        setInputValues((prev: any) => ({ ...prev, [input.name]: "" }));
+      }
     });
   }, [Data]);
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -37,15 +44,15 @@ function FormGenerator() {
     <div className={styles.container}>
       <div className={styles.heading}>Create New Form</div>
       <div className={styles.form_container}>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.fields}>
-          <FormFields inputValues={inputValues} handleChange={handleChange} />
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.fields}>
+            <FormFields inputValues={inputValues} handleChange={handleChange} />
+          </div>
 
-        <button type="submit" className={styles.btn}>
-          {loading ? <span className={styles.loader}></span> : "Generate Form"}
-        </button>
-      </form>
+          <button type="submit" className={styles.btn}>
+            {loading ? <span className={styles.loader}></span> : "Generate Form"}
+          </button>
+        </form>
       </div>
     </div>
   );

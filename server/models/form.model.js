@@ -26,7 +26,7 @@ module.exports = {
     driver_no,
     travel_time,
     travel_distance,
-    form_valid_form,
+    form_valid_from,
     form_valid_upto,
   }) => {
     return new Promise(function (resolve, reject) {
@@ -35,7 +35,7 @@ module.exports = {
           `INSERT INTO form_list (id,form_type,form_no,movement_type,owner_name,firm_name,lease_address,
           seller_reg_no,seller_gst,seller_address,mineral_name,weight,sale_value,gst_rate,payble_gst,purchase_status,
           purchase_reg_no,purchase_gst,destination_address,vehicle_type,vehicle_reg_no,driver_name,driver_no,
-          travel_time,travel_distance,form_valid_form,form_valid_upto
+          travel_time,travel_distance,form_valid_from,form_valid_upto
         ) VALUES (
           $1, $2, $3, $4, $5, $6, $7, $8, $9, $10,
           $11, $12, $13, $14, $15, $16, $17, $18, $19, $20,
@@ -68,7 +68,7 @@ module.exports = {
             driver_no,
             travel_time,
             travel_distance,
-            form_valid_form,
+            form_valid_from,
             form_valid_upto,
           ]
         );
@@ -137,7 +137,7 @@ module.exports = {
               LOWER(driver_no) LIKE LOWER($1) OR
               LOWER(travel_time) LIKE LOWER($1) OR
               LOWER(travel_distance) LIKE LOWER($1) OR
-              LOWER(form_valid_form) LIKE LOWER($1) OR
+              LOWER(form_valid_from) LIKE LOWER($1) OR
               LOWER(form_valid_upto) LIKE LOWER($1))
               AND status = true
           ORDER BY created_at DESC
@@ -185,7 +185,7 @@ module.exports = {
           LOWER(driver_no) LIKE LOWER($1) OR
           LOWER(travel_time) LIKE LOWER($1) OR
           LOWER(travel_distance) LIKE LOWER($1) OR
-          LOWER(form_valid_form) LIKE LOWER($1) OR
+          LOWER(form_valid_from) LIKE LOWER($1) OR
           LOWER(form_valid_upto) LIKE LOWER($1))
           AND status = true;
       `,

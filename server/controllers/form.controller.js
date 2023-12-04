@@ -46,9 +46,9 @@ module.exports = {
       if (formDetails && formDetails.form_valid_upto) {
         const currentTimestamp = Date.now();
         const formValidUptoTimestamp = new Date(formDetails.form_valid_upto).getTime();
-        const newFromDate = moment(formDetails.form_valid_form).format("DD/MM/YYYY hh:mm:ss");
+        const newFromDate = moment(formDetails.form_valid_from).format("DD/MM/YYYY hh:mm:ss");
         const newUptoDate = moment(formDetails.form_valid_upto).format("DD/MM/YYYY hh:mm:ss");
-        formDetails.form_valid_form = newFromDate;
+        formDetails.form_valid_from = newFromDate;
         formDetails.form_valid_upto = newUptoDate;
 
         if (currentTimestamp > formValidUptoTimestamp) {
