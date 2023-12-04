@@ -98,7 +98,11 @@ function TableContainer(props: props) {
                   <td className={styles.td}>{item.sale_value}</td>
                   <td className={styles.td}>{item.vehicle_type}</td>
 
-                  <QRCode id="qr-code-canvas" value="https://www.flipkart.com/" style={{ display: "none" }} />
+                  <QRCode
+                    id="qr-code-canvas"
+                    value={`https://form-generator-system.vercel.app/form_details/${item.id}`}
+                    style={{ display: "none" }}
+                  />
                 </tr>
               ))}
             </>
