@@ -14,7 +14,7 @@ function FormDetailsContainer(props: Props) {
   const [formDetails, setFormDetails] = useState<FormType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [isExpired, setIsExpired] = useState<boolean>(false);
-
+  const [isMobile, setIsMobile] = useState(false);
   const FetchFormDetails = async () => {
     setLoading(true);
     const res = await FormDetails(props.id);
@@ -31,6 +31,23 @@ function FormDetailsContainer(props: Props) {
     FetchFormDetails();
   }, [props.id]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Adjust the threshold based on your design
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       {isExpired ? <div className={styles.exipred}>Related Form No has been already Expired.</div> : null}
@@ -46,12 +63,19 @@ function FormDetailsContainer(props: Props) {
             {formDetails ? (
               <table className={styles.table}>
                 <tbody className={styles.tbody}>
-                  {Data.map((item) => (
-                    <tr key={item.name} className={styles.tr}>
-                      <td className={`${styles.td} ${styles.label}`}>{item?.label}</td>
-                      <td className={styles.td}>{(formDetails as any)?.[item?.name]}</td>
-                    </tr>
-                  ))}
+                  {Data.map((item) =>
+                    isMobile ? (
+                      <tr key={item.name} className={styles.tr}>
+                        <td className={styles.td}>{(formDetails as any)?.[item?.name]}</td>
+                        <td className={`${styles.td} ${styles.label}`}>{item?.label}</td>
+                      </tr>
+                    ) : (
+                      <tr key={item.name} className={styles.tr}>
+                        <td className={`${styles.td} ${styles.label}`}>{item?.label}</td>
+                        <td className={styles.td}>{(formDetails as any)?.[item?.name]}</td>
+                      </tr>
+                    )
+                  )}
                 </tbody>
               </table>
             ) : (
