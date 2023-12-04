@@ -9,7 +9,6 @@ type props = {
 };
 function FormFields(props: props) {
   const { inputValues, handleChange } = props;
-  console.log("🚀  file: FormFields.tsx:12  inputValues:sssss", inputValues);
 
   return (
     <div className={styles.container}>

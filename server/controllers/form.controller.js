@@ -45,7 +45,7 @@ module.exports = {
   
       if (formDetails && formDetails.form_valid_upto) {
         const currentTimestamp = Date.now();
-        const formValidUptoTimestamp = moment(formDetails.form_valid_upto, "DD/MM/YYYY hh:mm A").valueOf();
+        const formValidUptoTimestamp = moment(formDetails.form_valid_upto, "DD/MM/YYYY hh:mm:ss A").valueOf();
   
         if (currentTimestamp > formValidUptoTimestamp) {
           isExpired = true;
