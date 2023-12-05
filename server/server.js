@@ -22,7 +22,7 @@ app.use(limiter);
 
 app.use(
   cors({
-    origin: [DOMAIN, DOMAIN_2],
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
