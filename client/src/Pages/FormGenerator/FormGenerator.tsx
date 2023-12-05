@@ -23,7 +23,7 @@ function FormGenerator() {
       } else if (input.name == "form_valid_upto") {
         setInputValues((prev: any) => ({ ...prev, [input.name]: moment().add(1, "days").format("DD/MM/YYYY hh:mm:ss A") }));
       } else {
-        setInputValues((prev: any) => ({ ...prev, [input.name]: "1" }));
+        setInputValues((prev: any) => ({ ...prev, [input.name]: "" }));
       }
     });
   }, [Data]);
@@ -45,7 +45,7 @@ function FormGenerator() {
       const res = await AddForm(obj);
       if (res?.status == Request_Succesfull) {
         toast.success(res?.message, ToastSuccess);
-      } else if (res?.response.status == Bad_Request) {
+      } else if (res?.response?.status == Bad_Request) {
         toast.error(res?.response?.data?.message, ToastError);
       } else {
         toast.error("Something went wrong!", ToastError);
