@@ -4,50 +4,19 @@
 }
 .heading {
   font-size: 26px;
-  font-weight: bold;
-  text-align: center;
+  font-weight: 500;
+  text-align: left;
   margin: 20px;
 }
 .tableContainer {
   width: 80%;
-  margin: 20px auto;
+  /* margin: 20px auto; */
   display: flex;
   justify-content: center;
   position: relative;
-  z-index: -10
-}
-.table {
-  /* border-collapse: collapse; */
-  width: 100%;
-  /* border: 1px double red; */
-  border-style: double;
+  z-index: -10;
 }
 
-.td {
-  width: 50%;
-  font-size: 14px;
-  color: #333333;
-}
-
-.table td,
-.table th {
-  /* border: 1px solid #ddd; */
-  padding: 8px;
-}
-
-
-
-.table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #5a5a5b;
-  color: white;
-}
-.label {
-  font-weight: bold;
-  color: #008000;
-}
 .loader {
   margin: auto;
   width: 20px;
@@ -80,10 +49,48 @@
   top: 50%;
   width: 500px;
   /* height: 200px; */
-
 }
 .expired_img img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.main_container {
+  /* border: 1px double red; */
+  width: 100%;
+  border-style: double;
+  border-color: #ccc;
+}
+.box {
+  margin-top: 10px;
+  width: 100%;
+  /* height: 10px; */
+  display: flex;
+  /* justify-content: space-between; */
+}
+.label {
+  color: #008000;
+  font-family: "Helvetica" !important;
+  font-size: 14px;
+  font-weight: bold;
+  width: 120px;
+  text-align: right;
+}
+.value {
+  font-family: "Helvetica" !important;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+@media screen and (max-width: 767px) {
+  .box {
+    display: block;
+  }
+  .label {
+    text-align: right;
+    width: 100%;
+  }
+  .value{
+    margin-top: 0px;
+  }
 }
