@@ -9,7 +9,7 @@
   margin: 20px;
 }
 .tableContainer {
-  width: 60%;
+  width: 80%;
   margin: 20px auto;
   display: flex;
   justify-content: center;
@@ -17,8 +17,10 @@
   z-index: -10
 }
 .table {
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   width: 100%;
+  /* border: 1px double red; */
+  border-style: double;
 }
 
 .td {
@@ -29,13 +31,11 @@
 
 .table td,
 .table th {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   padding: 8px;
 }
 
-.table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
+
 
 .table th {
   padding-top: 12px;
@@ -46,7 +46,7 @@
 }
 .label {
   font-weight: bold;
-  color: #02614e;
+  color: #008000;
 }
 .loader {
   margin: auto;
