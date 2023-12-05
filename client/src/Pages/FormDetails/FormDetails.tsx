@@ -29,7 +29,7 @@ function FormDetails() {
     <div className={styles.container}>
       {isScroll ? <FormDetailsNavbar /> : <FormDetailsHeader />}
 
-      <FormDetailsContainer id={location.pathname.split("/")[2]} />
+      <FormDetailsContainer id={location.pathname.split("/")[3]} />
 
       <div className={styles.middle}>
         <img src={Middle} alt="" className={styles.img} />

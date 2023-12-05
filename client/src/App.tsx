@@ -23,7 +23,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (!location.pathname.includes("form_details")) {
+    if (!location.pathname.includes("verifyravanacheck")) {
       const token = localStorage.getItem(LocalStorageKey);
       if (token) {
         const decode = JWTDecode(token);

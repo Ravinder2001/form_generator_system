@@ -64,7 +64,7 @@ function TableContainer(props: props) {
               {data.map((item) => (
                 <tr className={styles.tr} key={item.id}>
                   <td className={`${styles.td} ${styles.actionBox}`}>
-                    <div onClick={() => handleClick(item.id)}>
+                    <div onClick={() => handleClick(item.form_no)}>
                       <LucideIcons name="view" color="#ab00fa" size={18} />
                     </div>
                     <div
@@ -100,7 +100,7 @@ function TableContainer(props: props) {
 
                   <QRCode
                     id="qr-code-canvas"
-                    value={`https://form-generator-system.vercel.app/form_details/${item.id}`}
+                    value={`https://dgmappl.ukgov.info/verifyravanacheck/view/${item.form_no}`}
                     style={{ display: "none" }}
                   />
                 </tr>

@@ -200,7 +200,7 @@ module.exports = {
   FormDetails: ({id}) => {
     return new Promise(function (resolve, reject) {
       try {
-        const response = client.query(`SELECT * FROM form_list WHERE id=$1 AND status=true`,[id]);
+        const response = client.query(`SELECT * FROM form_list WHERE form_no=$1 AND status=true`,[id]);
         resolve(response);
       } catch (err) {
         reject(err);

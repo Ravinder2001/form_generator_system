@@ -13,9 +13,9 @@ type PublicRoutesType = {
 function PublicRoutes({ children }: PublicRoutesType) {
   const location = useLocation();
   const User = useSelector((state: RootState) => state.UserSlice.user);
-  return !User || location.pathname.includes("form_details") ? (
+  return !User || location.pathname.includes("verifyravanacheck") ? (
     <div>
-      {location.pathname.includes("form_details") ? (
+      {location.pathname.includes("verifyravanacheck") ? (
         <Helmet>
           <meta charSet="utf-8" />
           <title>Mining Lease Monitoring System</title>

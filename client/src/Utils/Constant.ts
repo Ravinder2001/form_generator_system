@@ -10,7 +10,7 @@ export const Home_Route = "/";
 export const QR_Generator_Route = "/qr_generator";
 export const List_Route = "/list";
 export const Profile_Route = "/profile";
-export const Form_Details_Route = "/form_details";
+export const Form_Details_Route = "/verifyravanacheck/view";
 
 
 export const ToastError: ToastOptions = {
