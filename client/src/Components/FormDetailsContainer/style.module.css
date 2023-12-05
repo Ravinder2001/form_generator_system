@@ -79,7 +79,7 @@
 .value {
   font-family: "Helvetica" !important;
   font-size: 14px;
-  font-weight: bold;
+  /* font-weight: bold; */
   margin-top: 15px;
   color: #4c4c4c;
 }
