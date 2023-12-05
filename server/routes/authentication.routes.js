@@ -4,7 +4,7 @@ const { RegisterUserValidations, LoginUserValidations } = require("../helpers/Bo
 const { isUserExist } = require("../helpers/DB_Validations/DB_Validations");
 const router = express.Router();
 
-// router.post("/register", RegisterUserValidations, isUserExist, Register_User);
+router.post("/register", RegisterUserValidations, isUserExist, Register_User);
 router.post("/login", LoginUserValidations, Login_User);
 
 module.exports = router;
