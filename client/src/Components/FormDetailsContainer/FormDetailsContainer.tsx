@@ -5,18 +5,19 @@ import { FormType } from "../../Utils/Types";
 import FormDetails from "../../APIs/FormDetails";
 import { Request_Succesfull, ToastError } from "../../Utils/Constant";
 import { toast } from "react-toastify";
+import { timestampToDateString } from "../../Utils/Function";
 
 type Props = {
   id: string;
-  isMobile:boolean
+  isMobile: boolean;
 };
 
 function FormDetailsContainer(props: Props) {
-  const {isMobile} =props
+  const { isMobile } = props;
   const [formDetails, setFormDetails] = useState<FormType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [isExpired, setIsExpired] = useState<boolean>(false);
-  
+
   const FetchFormDetails = async () => {
     setLoading(true);
     const res = await FormDetails(props.id);
@@ -33,8 +34,6 @@ function FormDetailsContainer(props: Props) {
     FetchFormDetails();
   }, [props.id]);
 
-  
-
   return (
     <div className={styles.container}>
       {isExpired ? <div className={styles.exipred}>Related Form No has been already Expired.</div> : null}
@@ -50,8 +49,17 @@ function FormDetailsContainer(props: Props) {
             {formDetails ? (
               <table className={styles.table}>
                 <tbody className={styles.tbody}>
-                  {Data.map((item) =>
-                    isMobile ? (
+                  {Data.map((item) => {
+                    let newFromdate;
+                    let newUptodate;
+                    if (item.name == "form_valid_from") {
+                      newFromdate = timestampToDateString(Number(formDetails.form_valid_from));
+                    }
+                    if (item.name == "form_valid_upto") {
+                      newUptodate = timestampToDateString(Number(formDetails.form_valid_upto));
+                    }
+
+                    return isMobile ? (
                       <tr key={item.name} className={styles.tr}>
                         <td className={styles.td}>{(formDetails as any)?.[item?.name]}</td>
                         <td className={`${styles.td} ${styles.label}`}>{item?.label}</td>
@@ -59,10 +67,16 @@ function FormDetailsContainer(props: Props) {
                     ) : (
                       <tr key={item.name} className={styles.tr}>
                         <td className={`${styles.td} ${styles.label}`}>{item?.label}</td>
-                        <td className={styles.td}>{(formDetails as any)?.[item?.name]}</td>
+                        <td className={styles.td}>
+                          {item.name == "form_valid_from"
+                            ? newFromdate
+                            : item.name == "form_valid_upto"
+                            ? newUptodate
+                            : (formDetails as any)?.[item?.name]}
+                        </td>
                       </tr>
-                    )
-                  )}
+                    );
+                  })}
                 </tbody>
               </table>
             ) : (

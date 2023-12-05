@@ -50,10 +50,6 @@ module.exports = {
         };
 
         isExpired = isTimestampExpired(Number(formDetails.form_valid_upto));
-        let newFromDate = timestampToDateString(Number(formDetails.form_valid_from));
-        let newUptoDate = timestampToDateString(Number(formDetails.form_valid_upto));
-        formDetails.form_valid_from = newFromDate;
-        formDetails.form_valid_upto = newUptoDate;
       }
       return res.status(Success).json({ data: { formDetails, isExpired }, status: Success });
     } catch (err) {
