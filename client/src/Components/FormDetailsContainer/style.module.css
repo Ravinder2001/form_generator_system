@@ -81,6 +81,7 @@
   font-size: 14px;
   font-weight: bold;
   margin-top: 15px;
+  color: #333333;
 }
 @media screen and (max-width: 767px) {
   .box {
