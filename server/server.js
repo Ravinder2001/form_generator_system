@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 const AuthenticationRoutes = require("./routes/authentication.routes");
 const FormRoutes = require("./routes/form.routes");
-const { DOMAIN } = require("./utils/config");
+const { DOMAIN, DOMAIN_2 } = require("./utils/config");
 console.log("DOMAIN:", DOMAIN);
 
 const limiter = rateLimit({
@@ -22,7 +22,7 @@ app.use(limiter);
 
 app.use(
   cors({
-    origin: [DOMAIN],
+    origin: [DOMAIN, DOMAIN_2],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
