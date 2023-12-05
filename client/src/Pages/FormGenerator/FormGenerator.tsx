@@ -68,10 +68,8 @@ function FormGenerator() {
     <div className={styles.container}>
       <div className={styles.heading}>Create New Form</div>
       <div className={styles.form_container}>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.fields}>
-            <FormFields isDateValid={isDateValid} inputValues={inputValues} handleChange={handleChange} />
-          </div>
+        <form onSubmit={handleSubmit} style={{ height: "100%", width: "100%" }}>
+          <FormFields isDateValid={isDateValid} inputValues={inputValues} handleChange={handleChange} />
 
           <button type="submit" className={styles.btn}>
             {loading ? <span className={styles.loader}></span> : "Generate Form"}

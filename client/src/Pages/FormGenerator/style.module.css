@@ -1,8 +1,9 @@
 .container {
   width: 100%;
-  height: 100vh;
+  height: 98vh;
   padding-top: 10px;
   background-color: rgb(231, 230, 230);
+  overflow: auto;
 }
 .heading {
   font-size: 24px;
@@ -12,8 +13,22 @@
   width: 98%;
   border-bottom: 1px solid rgb(212, 210, 210);
 }
+.form_container{
+
+  /* border: 1px solid red; */
+  width: 98%;
+  margin: 10px auto;
+  height: auto;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding-bottom: 20px;
+}
 .fields {
+  height: 100%;
+  width: 100%;
   margin-top: 10px;
+  border: 1px solid red;
 }
 .btn {
   width: 200px;
@@ -46,13 +61,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
-.form_container{
-  /* border: 1px solid red; */
-  width: 98%;
-  margin: auto;
-  height: 90vh;
-  background-color: white;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
