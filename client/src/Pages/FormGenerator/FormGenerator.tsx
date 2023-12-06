@@ -23,7 +23,7 @@ function FormGenerator() {
       } else if (input.name == "form_valid_upto") {
         setInputValues((prev: any) => ({ ...prev, [input.name]: moment().add(1, "days").format("DD/MM/YYYY hh:mm:ss A") }));
       } else {
-        setInputValues((prev: any) => ({ ...prev, [input.name]: input.default_value }));
+        setInputValues((prev: any) => ({ ...prev, [input.name]: "" }));
       }
     });
   }, [Data]);
