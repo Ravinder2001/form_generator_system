@@ -8,8 +8,6 @@ const PORT = process.env.PORT || 5000;
 
 const AuthenticationRoutes = require("./routes/authentication.routes");
 const FormRoutes = require("./routes/form.routes");
-const { DOMAIN, DOMAIN_2 } = require("./utils/config");
-console.log("DOMAIN:", DOMAIN);
 
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000,

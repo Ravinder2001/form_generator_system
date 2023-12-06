@@ -20,12 +20,14 @@ function PublicRoutes({ children }: PublicRoutesType) {
           <meta charSet="utf-8" />
           <title>Mining Lease Monitoring System</title>
           <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
+          <link rel="apple-touch-icon" type="image/png" href={favicon} sizes="16x16" />
         </Helmet>
       ) : (
         <Helmet>
           <meta charSet="utf-8" />
           <title>Form Generator System</title>
           <link rel="icon" type="image/png" href={favicon2} sizes="16x16" />
+          <link rel="apple-touch-icon" type="image/png" href={favicon2} sizes="16x16" />
         </Helmet>
       )}
 
