@@ -83,15 +83,15 @@
   margin-top: 15px;
   color: #4b4a4a;
   font-weight: bold;
-
 }
 @media screen and (max-width: 767px) {
   .tableContainer {
-    width: 100%;}
+    width: 100%;
+  }
   .box {
     display: block;
     width: 300px;
-    margin-left: 20px;
+    margin-left: 50px;
   }
   .label {
     text-align: right;
@@ -99,8 +99,8 @@
   }
   .value {
     margin-top: 0px;
-    margin-left: 70px;
-      /* border: 1px solid red; */
-  width: 400px;
+    margin-left: 30px;
+    /* border: 1px solid red; */
+    width: 400px;
   }
 }
